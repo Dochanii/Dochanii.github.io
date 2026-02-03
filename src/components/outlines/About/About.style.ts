@@ -14,33 +14,55 @@ const typing = keyframes`
       left: 0;
     }
 `;
+export const about_container = css`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
 export const static_txt = css`
     color: #fff;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 900;
-    height: 40%;
+    width: 30%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+export const introduce_circle = css`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
 `;
   
 export const introduce_line = css`
-    height: 50%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2.5rem;
 `;
   
 export const dynamic_wrapper = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30%;
+    width: 100%;
 `;
 export const dynamic_txts = css`
+    width: 100%;
+    max-width: 800px;
     text-align: center;
     height: 90px;
-    line-height: 90px;
     font-size: 30px;
     overflow: hidden;
+    padding: 0;
+    margin: 0;
 `;
 export const dynamic_txts_li = css`
     list-style: none;
@@ -49,6 +71,8 @@ export const dynamic_txts_li = css`
     font-weight: 900;
     position: relative;
     top: 0;
+    width: 100%;
+    text-align: center;
     animation: ${slide} 12s steps(4) infinite;
 `;
 export const dynamic_txts_li_span = css`
@@ -59,13 +83,12 @@ export const dynamic_txts_li_span = css`
 export const dynamic_txts_li_span_after = css`
     content: "";
     position: absolute;
-    background: rgb(52, 52, 52);
+    background: #000;
   
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
   
-    border-left: 2px solid #fc6d6d;
     animation: ${typing} 3s steps(20) infinite;
 `;
