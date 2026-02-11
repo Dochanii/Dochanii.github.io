@@ -545,6 +545,32 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.57.1.tgz#a03348e7b559c792b6277cc58874b89ef46e1e72"
   integrity sha512-mxRFDdHIWRxg3UfIIAwCm6NzvxG0jDX/wBN6KsQFTvKFqqg9vTrWUE68qEjHt19A5wwx5X5aUi2zuZT7YR0jrA==
 
+"@ssoc/assets@^1.0.0":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@ssoc/assets/-/assets-1.0.9.tgz#67e68e2049575b3111cd92578a35616abbf9a4d6"
+  integrity sha512-ZqbsN4GY+A/4k1tNezmB+bACeMsbiLYa53EKc1i4fwPPIfN9XTM3znC36yCzJQ5jBn6GL51zCWx1S/oISJIOjg==
+
+"@ssoc/styles@^1.0.0":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@ssoc/styles/-/styles-1.0.9.tgz#5248c56967fed2f444f89d5ae39e52aa91cf4764"
+  integrity sha512-yW2pc8ww2BDN3QEHjmxC3AO+zfPPdbPBAQVAJo4N+LiaWmLu8p86oU4XQHiPaYAdkGCc8gWfzXhSfgVwNh+g2g==
+  dependencies:
+    "@ssoc/assets" "^1.0.0"
+
+"@ssoc/ui@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@ssoc/ui/-/ui-1.0.9.tgz#955629ba19dbd056cabe818dc7041cf3c0f5e413"
+  integrity sha512-JQGQo4plRmvALTGElk6SKMzbwWfJY7E5w7mCRcj+STf/GfP2BL//kEZfmKiP48ob0dRhvKMLKWMtH4xEXF+oXQ==
+  dependencies:
+    "@ssoc/assets" "^1.0.0"
+    "@ssoc/styles" "^1.0.0"
+    "@ssoc/utils" "^1.0.0"
+
+"@ssoc/utils@^1.0.0":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@ssoc/utils/-/utils-1.0.9.tgz#fdc91f9b01edaed58f2f6407f06137185872b424"
+  integrity sha512-JlHCo+/QaoFMO/R1pr9PxqpmHYdFzurbUWe02HdZBJyI6ePdwoZz+1LBvx6JbJcDJWvDgApbJyHqHVEfqXWM3w==
+
 "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.5.tgz#3df15f27ba85319caa07ba08d0721889bb39c017"
