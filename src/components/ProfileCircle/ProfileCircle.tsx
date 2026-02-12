@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { profileCircleContainer, profileImage } from './ProfileCircle.style'
 
 const ProfileCircle = (props: { image: string }) => {
