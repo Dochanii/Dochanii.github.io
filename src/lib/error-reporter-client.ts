@@ -30,19 +30,42 @@ interface ErrorPayload {
   tags: string[];
 }
 
-// 중복 에러 방지
+// 중복 에러 방지 (localStorage에 영구 저장)
+const STORAGE_KEY = 'error-reporter-sent-errors';
 const reportedErrors = new Set<string>();
+
+// localStorage에서 이미 전송된 에러 목록 불러오기
+if (typeof window !== 'undefined') {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const errors = JSON.parse(stored);
+      errors.forEach((err: string) => reportedErrors.add(err));
+    }
+  } catch {
+    // 무시
+  }
+}
 
 /**
  * 에러를 대시보드로 전송
  */
 async function reportError(errorData: ErrorData): Promise<void> {
-  // 중복 체크
+  // 중복 체크 (같은 에러는 한 번만 전송)
   const errorKey = `${errorData.message}-${errorData.source}`;
-  if (reportedErrors.has(errorKey)) return;
+  if (reportedErrors.has(errorKey)) {
+    console.log('⏭️ 이미 수집된 에러입니다:', errorData.title || errorData.message);
+    return;
+  }
   
   reportedErrors.add(errorKey);
-  setTimeout(() => reportedErrors.delete(errorKey), 60000);
+  
+  // localStorage에 저장 (페이지 새로고침 후에도 유지)
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(reportedErrors)));
+  } catch {
+    // 무시
+  }
   
   const payload: ErrorPayload = {
     errorMessage: errorData.message,
@@ -99,6 +122,13 @@ if (typeof window !== 'undefined') {
   });
   
   console.log(`🔗 에러 대시보드 연결됨 [${PROJECT_NAME}] → ${ERROR_DASHBOARD_URL}`);
+  
+  // 개발/테스트용: 전역 함수로 에러 목록 초기화 기능 노출
+  (window as any).clearErrorHistory = () => {
+    reportedErrors.clear();
+    localStorage.removeItem(STORAGE_KEY);
+    console.log('🗑️ 수집된 에러 목록이 초기화되었습니다');
+  };
 }
 
 export { reportError };
